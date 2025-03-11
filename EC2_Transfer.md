@@ -1,7 +1,7 @@
 # Transfering of EC2 instance from one region to another 
 ## Steps to Transfer EC2 Instance from Region A(Seoul) to Region B(Virginia)
 
-![EC2Transfer drawio](https://github.com/user-attachments/assets/600f389e-afe4-4531-8b02-50252aa9285a)
+![EC2Transfer2 drawio](https://github.com/user-attachments/assets/0a779612-b494-40a7-bbb5-e1fd406ff331)
 
 You see, [Amazon EC2](https://aws.amazon.com/ec2/getting-started/) allows us users to rent virtual servers(instances) in the cloud helping with the running of applications, hosting websites, etc. AWS is operated in multiple geographic regions worldwide, each region with seperate geographic area with their own data centers. Within each region, there are multiple isolated data centers called [availability zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html).
 
