@@ -49,23 +49,25 @@ Then, Click Copy AMI and wait (this may take some time depending on size).
 7. Configure storage, security groups, and network settings.
 8. Click Launch.
 
-> [!NOTE] ## Post-Transfer Steps
+> [!NOTE]
+> ## Post-Transfer Steps
 > After the instance is successfully launched in the target region, there are a few additional steps to ensure everything works smoothly:
-> 1. Verification:**
+> 1. **Verification:**
 > - Check that the instance is running and accessible.
 > + Verify that all applications and services on the instance are functioning correctly.
 > Test connectivity to any dependent resources (e.g., databases, storage buckets).
 
-**2. Cleanup:**
-- Delete the original AMI and snapshots in the source region to avoid unnecessary storage costs.
-+ Update any DNS records or configurations to point to the new instance in the target region.
+> **2. Cleanup:**
+> - Delete the original AMI and snapshots in the source region to avoid unnecessary storage costs.
+> + Update any DNS records or configurations to point to the new instance in the target region.
 
-## Additional Notes
-**Networking Considerations:** When launching the instance in the target region, you may need to reconfigure networking settings, such as VPCs, subnets, and security groups, to match the new environment.
+> [!TIP]
+> ## Additional Notes
+> **Networking Considerations:** When launching the instance in the target region, you may need to reconfigure networking settings, such as VPCs, subnets, and security groups, to match the new environment.
 
-**Data Transfer Costs:** Be aware that copying AMIs and transferring data between regions incurs costs. Check the AWS pricing page for details.
+> **Data Transfer Costs:** Be aware that copying AMIs and transferring data between regions incurs costs. Check the AWS pricing page for details.
 
-**Automation:** For frequent transfers, consider automating the process using AWS CLI, SDKs, or infrastructure-as-code tools like Terraform or CloudFormation.
+> **Automation:** For frequent transfers, consider automating the process using AWS CLI, SDKs, or infrastructure-as-code tools like Terraform or CloudFormation.
 
 ## Conclusion
 Transferring an EC2 instance from one AWS region to another is a multi-step process that involves creating AMIs or snapshots, and reconfiguring resources in the target region. By following best practices—such as testing in a non-production environment, monitoring costs, and verifying the new instance—you can ensure a smooth and successful migration. Whether you're a beginner or an experienced AWS user, mastering this skill will help you build a more resilient and efficient cloud infrastructure.
