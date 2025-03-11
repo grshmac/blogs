@@ -19,7 +19,7 @@ You see, [Amazon EC2](https://aws.amazon.com/ec2/getting-started/) allows us use
 ### **Creation of AMI and copying it:**
 - We can create an AMI using either the console or the AWS CLI. In this section, we are about to list the steps on the regions of Seoul to Virginia for our case. So, lets get started:
 
-## A. Create an AMI (Amazon Machine Image) in Seoul
+### A. Create an AMI (Amazon Machine Image) in Seoul
 1. Open EC2 Dashboard in the Seoul (ap-northeast-2) region.
 2. Select your EC2 instance.
 3. Click on Actions → Image and templates → Create Image.
@@ -29,7 +29,7 @@ You see, [Amazon EC2](https://aws.amazon.com/ec2/getting-started/) allows us use
 
 Then, Click Create Image and wait for it to be available.
 
-## B. Copy the AMI to Virginia
+### B. Copy the AMI to Virginia
 1. Go to EC2 Dashboard → AMIs.
 2. Select the AMI you just created.
 3. Click Actions → Copy AMI.
@@ -39,7 +39,7 @@ Then, Click Create Image and wait for it to be available.
 
 Then, Click Copy AMI and wait (this may take some time depending on size).
 
-## C. Launch a New Instance in Virginia
+### C. Launch a New Instance in Virginia
 1. Switch to Virginia (us-east-1) in the AWS console.
 2. Go to EC2 Dashboard → AMIs.
 3. Select the copied AMI.
