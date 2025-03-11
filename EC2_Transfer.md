@@ -1,9 +1,9 @@
 # Transfering of EC2 instance from one region to another 
-## Steps to Transfer EC2 Instance from Seoul to Virginia
+## Steps to Transfer EC2 Instance from Region A(Seoul) to Region B(Virginia)
 
-![EC2Transfer drawio](https://github.com/user-attachments/assets/47697436-38ab-4284-9e44-bc2369b732d4)
+![EC2Transfer drawio](https://github.com/user-attachments/assets/600f389e-afe4-4531-8b02-50252aa9285a)
 
-[Amazon EC2](https://aws.amazon.com/ec2/getting-started/) allows us users to rent virtual servers(instances) in the cloud helping with the running of applications, hosting websites, etc. AWS operated in multiple geographic regions worldwide, each region with seperate geographic area with their own data centers. Within each region, there are multiple isolated data centers called [Availability Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html).
+You see, [Amazon EC2](https://aws.amazon.com/ec2/getting-started/) allows us users to rent virtual servers(instances) in the cloud helping with the running of applications, hosting websites, etc. AWS is operated in multiple geographic regions worldwide, each region with seperate geographic area with their own data centers. Within each region, there are multiple isolated data centers called [availability zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html).
 
 ### **Why Regions Matter?**
 - EC2 instances are region-specific, meaning an instance created in one region cannot be directly moved to another. Instead, you need to create a copy of the instance in the target region. But we might need to transfer an EC2 instance from one AWS region to another for the reasons of:
@@ -17,7 +17,7 @@
 - Transferring EC2 instances between regions isn't as simple as clicking a button. This involves several steps, including creating [AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html), copying AMIs and reconfiguring networking. Additionally, there are costs associated with data transfer and potential downtime during the migration process. However, with proper planning, these challenges can be mitigated and it's important to remember that the success of the migration depends on replicating associated configurations, such as security groups, route tables, and IP settings, to match the target region's requirements.
 
 ### **Creation of AMI and copying it:**
-- We can create an AMI using either the console or the AWS CLI. We are about to list the steps on the region of Seoul to Virginia for our case:
+- We can create an AMI using either the console or the AWS CLI. In this section, we are about to list the steps on the regions of Seoul to Virginia for our case. So, lets get started:
 
 ## A. Create an AMI (Amazon Machine Image) in Seoul
 1. Open EC2 Dashboard in the Seoul (ap-northeast-2) region.
@@ -65,4 +65,4 @@ Then, Click Copy AMI and wait (this may take some time depending on size).
 > - **Automation:** For frequent transfers, consider automating the process using AWS CLI, SDKs, or infrastructure-as-code tools like Terraform or CloudFormation.
 
 ### Conclusion
-Transferring an EC2 instance from one AWS region to another is a multi-step process that involves creating AMIs or snapshots, and reconfiguring resources in the target region. By following best practices—such as testing in a non-production environment, monitoring costs, and verifying the new instance—you can ensure a smooth and successful migration. Whether you're a beginner or an experienced AWS user, mastering this skill will help you build a more resilient and efficient cloud infrastructure.
+Transferring an EC2 instance from one AWS region to another is a multi-step process that by following best practices—such as testing in a non-production environment, monitoring costs, and verifying the new instance—you can ensure a smooth and successful migration. Whether you're a beginner or an experienced AWS user, mastering this skill will help you build a more resilient and efficient cloud infrastructure.
