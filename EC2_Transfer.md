@@ -8,10 +8,10 @@ You see, [Amazon EC2](https://aws.amazon.com/ec2/getting-started/) allows us use
 ### **Why Regions Matter?**
 - EC2 instances are region-specific, meaning an instance created in one region cannot be directly moved to another. Instead, you need to create a copy of the instance in the target region. But we might need to transfer an EC2 instance from one AWS region to another for the reasons of:
 
-1. **Disaster Recovery**: You may want and need to replicate your infrastructure in another region as a backup to ensure business continuity.
-2. **Cost Optimization**: Transferring instances to a cheaper region can help reduce costs.
-3. **Latency Reduction**: When moved the instances closer to end-users, it improves application performance and reduced latency(a time delay between the cause and the effect).
-4. **Compliance**: Due to regulatory requirements, industries or countries require data to be stored in specific geographic locations.
+  1. **Disaster Recovery**: You may want and need to replicate your infrastructure in another region as a backup to ensure business continuity.
+  2. **Cost Optimization**: Transferring instances to a cheaper region can help reduce costs.
+  3. **Latency Reduction**: When moved the instances closer to end-users, it improves application performance and reduced latency(a time delay between the cause and the effect).
+  4. **Compliance**: Due to regulatory requirements, industries or countries require data to be stored in specific geographic locations.
 
 ### **Challenges of Transferring EC2 instances:**
 - Transferring EC2 instances between regions isn't as simple as clicking a button. This involves several steps, including creating [AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html), copying AMIs and reconfiguring networking. Additionally, there are costs associated with data transfer and potential downtime during the migration process. However, with proper planning, these challenges can be mitigated and it's important to remember that the success of the migration depends on replicating associated configurations, such as security groups, route tables, and IP settings, to match the target region's requirements.
@@ -24,8 +24,8 @@ You see, [Amazon EC2](https://aws.amazon.com/ec2/getting-started/) allows us use
 2. Select your EC2 instance.
 3. Click on Actions → Image and templates → Create Image.
 4. Provide:
-- Image name (e.g., Seoul-Instance-Backup).
-* No reboot (optional, check this if you don't want downtime).
+   - Image name (e.g., Seoul-Instance-Backup).
+   * No reboot (optional, check this if you don't want downtime).
 
 Then, Click Create Image and wait for it to be available.
 
@@ -34,8 +34,8 @@ Then, Click Create Image and wait for it to be available.
 2. Select the AMI you just created.
 3. Click Actions → Copy AMI.
 4. Choose:
-- Destination region: us-east-1 (Virginia).
-* Copy Permissions: Keep as default.
+   - Destination region: us-east-1 (Virginia).
+   * Copy Permissions: Keep as default.
 
 Then, Click Copy AMI and wait (this may take some time depending on size).
 
@@ -52,12 +52,12 @@ Then, Click Copy AMI and wait (this may take some time depending on size).
 > [!NOTE]
 > After the instance is successfully launched in the target region, there are a few additional steps to ensure everything works smoothly:
 > - **Verification:**
-> 1. Check that the instance is running and accessible.
-> 2. Verify that all applications and services on the instance are functioning correctly.
-> Test connectivity to any dependent resources (e.g., databases, storage buckets).
+>     1. Check that the instance is running and accessible.
+>     2. Verify that all applications and services on the instance are functioning correctly.
+>     3. Test connectivity to any dependent resources (e.g., databases, storage buckets).
 > - **Cleanup:**
-> 1. Delete the original AMI and snapshots in the source region to avoid unnecessary storage costs. See the reference for [AMI Costs](https://docs.aws.amazon.com/marketplace/latest/userguide/pricing-ami-products.html#pricing-models-for-ami-products).
-> 2. Update any DNS records or configurations to point to the new instance in the target region.
+>     1. Delete the original AMI and snapshots in the source region to avoid unnecessary storage costs. See the reference for [AMI Costs](https://docs.aws.amazon.com/marketplace/latest/userguide/pricing-ami-products.html#pricing-models-for-ami-products).
+>     2. Update any DNS records or configurations to point to the new instance in the target region.
 
 > [!TIP]
 > - **Networking Considerations:** When launching the instance in the target region, you may need to reconfigure networking settings, such as VPCs, subnets, and security groups, to match the new environment.
