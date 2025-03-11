@@ -24,4 +24,15 @@ We can create an AMI using either the console or the AWS CLI:
 4. Provide:
 - Image name (e.g., Seoul-Instance-Backup).
 * No reboot (optional, check this if you don't want downtime).
+
 Then, Click Create Image and wait for it to be available.
+
+**Copy the AMI to Virginia**
+1. Go to EC2 Dashboard → AMIs.
+2. Select the AMI you just created.
+3. Click Actions → Copy AMI.
+4. Choose:
+- Destination region: us-east-1 (Virginia).
+* Copy Permissions: Keep as default.
+
+Then, Click Copy AMI and wait (this may take some time depending on size).
